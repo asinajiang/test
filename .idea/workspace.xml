@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="175ba357-4b66-4b34-8211-2859304f4d0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rumwei/func/jvmtest/MetaSpaceTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rumwei/func/jvmtest/MetaSpaceTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rumwei/func/jvmtest/MetaSpaceTest$OOMObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rumwei/func/jvmtest/MetaSpaceTest$OOMObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rumwei/func/jvmtest/MetaSpaceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rumwei/func/jvmtest/MetaSpaceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -181,8 +172,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+              <first_editor relative-caret-position="30">
+                <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               </first_editor>
               <second_editor />
             </state>
@@ -387,7 +378,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568794549967" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568795172759" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -527,12 +518,20 @@
       <workItem from="1567324681524" duration="4629000" />
       <workItem from="1567334006328" duration="496000" />
       <workItem from="1568100002149" duration="8119000" />
-      <workItem from="1568794022576" duration="515000" />
+      <workItem from="1568794022576" duration="1109000" />
     </task>
+    <task id="LOCAL-00001" summary="hahad">
+      <created>1568794675541</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568794675541</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70340000" />
+    <option name="totallyTimeSpent" value="70934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="23" width="1400" height="806" extended-state="0" />
@@ -553,10 +552,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32885906" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.4992636" visible="true" weight="0.3277311" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32867134" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3277311" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073636" side_tool="true" visible="true" weight="0.3277311" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32771084" />
       <window_info anchor="bottom" id="Tail" order="13" />
       <window_info anchor="bottom" id="Run with VisualVM" order="14" weight="0.32867134" />
@@ -577,6 +576,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hahad" />
+    <option name="LAST_COMMIT_MESSAGE" value="hahad" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -964,8 +967,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+          <first_editor relative-caret-position="30">
+            <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           </first_editor>
           <second_editor />
         </state>
