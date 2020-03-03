@@ -22,6 +22,11 @@ public class Main {
 
     private final HashMap<String,String> map = new HashMap<>();
     public static void main(String[] args) throws IOException {
+
+        String ss = "hello1234";
+        System.out.println(ss.substring(ss.length()-4));
+
+
         ExecutorService consumer = Executors.newFixedThreadPool(5);
         ExecutorService producer = Executors.newFixedThreadPool(5);
         final Lock lock = new ReentrantLock();
@@ -33,6 +38,14 @@ public class Main {
         data.add(3);
         data.add(4);
         data.add(5);
+        while (data.size() > 0 && data.get(data.size()-1) > 3){
+            if (data.get(data.size()-1) > 3){
+                data.remove(data.size()-1);
+            }
+        }
+        System.out.println();
+
+
         consumer.execute(() -> {
             while(true){
                 try{
