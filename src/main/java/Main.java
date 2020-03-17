@@ -1,8 +1,17 @@
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.rumwei.enums.DateType;
 import com.rumwei.func.sftest.People;
 import com.rumwei.util.CalendarUtilGW;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClients;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -23,8 +32,37 @@ public class Main {
     private final HashMap<String,String> map = new HashMap<>();
     public static void main(String[] args) throws IOException {
 
-        String ss = "hello1234";
-        System.out.println(ss.substring(ss.length()-4));
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        try{
+            HttpGet httpGet = new HttpGet("http://localhost:7000/pay/get");
+            CloseableHttpResponse response = httpClient.execute(httpGet);
+            System.out.println(response.getEntity());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        HttpClient client = HttpClients.createDefault();
+        HttpGet request = new HttpGet("http://localhost:7000/payment/get");
+        request.setHeader("User-Agent", "PostmanRuntime/7.22.0");
+        request.setHeader("Accept","*/*");
+        request.setHeader("Cache-Control","no-cache");
+        request.setHeader("Postman-Token","4bafcb40-b36c-414a-b857-5d00e88bef14");
+        request.setHeader("Host","localhost:8001");
+        request.setHeader("Accept-Encoding","gzip, deflate, br");
+        request.setHeader("Cookie","JSESSIONID=D72BFE5D75CA6BD197835A3FC7CF7C21");
+        request.setHeader("Connection","keep-alive");
+        try{
+            HttpResponse response = client.execute(request);
+            System.out.println(response);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(calendar.getTimeInMillis()+24*3600*1000);
+        calendar.set(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH),0,0,0);
+        Date nc = new Date(calendar.getTimeInMillis() + (30l * 24 * 3600 * 1000));
 
 
         ExecutorService consumer = Executors.newFixedThreadPool(5);
