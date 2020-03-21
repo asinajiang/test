@@ -1,7 +1,10 @@
+import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.util.BeanUtil;
+import com.rumwei.enums.ApproximateType;
 import com.rumwei.enums.DateType;
 import com.rumwei.func.sftest.People;
+import com.rumwei.util.BigDecimalUtilGW;
 import com.rumwei.util.CalendarUtilGW;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.http.HttpResponse;
@@ -15,6 +18,7 @@ import org.apache.http.impl.client.HttpClients;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -32,14 +36,13 @@ public class Main {
     private final HashMap<String,String> map = new HashMap<>();
     public static void main(String[] args) throws IOException {
 
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-        try{
-            HttpGet httpGet = new HttpGet("http://localhost:7000/pay/get");
-            CloseableHttpResponse response = httpClient.execute(httpGet);
-            System.out.println(response.getEntity());
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        BigDecimal bigDecimal = new BigDecimal("3.123343");
+        bigDecimal = BigDecimalUtilGW.getApproximateValue(bigDecimal,2, ApproximateType.ROUND_CEILING_正数_则小数部分进1_负数_则舍弃小数部分);
+        String bd = bigDecimal.toString();
+        System.out.println(bigDecimal.toString());
+
+        Date nextWeek = DateUtil.nextWeek();
+        System.out.println(nextWeek);
 
         HttpClient client = HttpClients.createDefault();
         HttpGet request = new HttpGet("http://localhost:7000/payment/get");
