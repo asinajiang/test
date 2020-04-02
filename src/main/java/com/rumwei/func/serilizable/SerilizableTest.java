@@ -1,9 +1,20 @@
 package com.rumwei.func.serilizable;
 
+import com.rumwei.util.ObjectUtilGW;
+
 import java.io.*;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SerilizableTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        Map<String, BigDecimal> map = new HashMap<>();
+        map.put("cn",BigDecimal.ONE);
+        map.put("地点",BigDecimal.TEN);
+        Device device = Device.builder().name("honghong").age(12).attachMap(map).build();
+        String res = ObjectUtilGW.ObjectToJsonString(device);
+        System.out.println(res);
 
         System.out.println(System.getProperty("line.separator"));
 

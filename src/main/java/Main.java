@@ -3,6 +3,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.rumwei.enums.ApproximateType;
 import com.rumwei.enums.DateType;
+import com.rumwei.func.mail.MailUtils;
 import com.rumwei.func.sftest.People;
 import com.rumwei.util.BigDecimalUtilGW;
 import com.rumwei.util.CalendarUtilGW;
@@ -16,6 +17,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -30,11 +32,68 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 public class Main {
 
+
     private final HashMap<String,String> map = new HashMap<>();
     public static void main(String[] args) throws IOException {
+
+        Integer ii = new Integer(34);
+
+
+        String message = "<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<head>\n" +
+                "<meta charset=\"utf-8\">\n" +
+                "<title>title</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "\t<p>设备离线清单:</p>\n" +
+                "\t\n" +
+                "    <table width=\"300\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;\">\n" +
+                "      <tr>\n" +
+                "        <td>a</td>\n" +
+                "        <td>a</td>\n" +
+                "      </tr>\n" +
+                "      <tr>\n" +
+                "        <td>b</td>\n" +
+                "        <td>b</td>\n" +
+                "      </tr>\n" +
+                "      <tr>\n" +
+                "        <td>c</td>\n" +
+                "        <td>c</td>\n" +
+                "      </tr>\n" +
+                "    </table>\n" +
+                "  \t\n" +
+                "</body>\n" +
+                "</html>";
+        try {
+            //MailUtils.sendEmail("guwei@easylinkin.com",
+//                    "guwei@easylinkin.com",
+//                    "测试",
+//                    message,
+//                    "2011G&w13791");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("ok");
+
+
+
+        Map<Integer,Calendar> result = new HashMap<>();
+        for(int i=1; i<=Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH); i++){
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.DAY_OF_MONTH,i);
+            calendar.set(Calendar.HOUR_OF_DAY,23);
+            calendar.set(Calendar.MINUTE,59);
+            calendar.set(Calendar.SECOND,59);
+            calendar.set(Calendar.MILLISECOND,999);
+            result.put(i,calendar);
+        }
+        System.out.println(result.size());
+
 
         BigDecimal bigDecimal = new BigDecimal("3.123343");
         bigDecimal = BigDecimalUtilGW.getApproximateValue(bigDecimal,2, ApproximateType.ROUND_CEILING_正数_则小数部分进1_负数_则舍弃小数部分);
