@@ -37,10 +37,55 @@ import java.util.stream.Collectors;
 public class Main {
 
 
+
     private final HashMap<String,String> map = new HashMap<>();
     public static void main(String[] args) throws IOException {
 
-        Integer ii = new Integer(34);
+
+
+        Scanner scan = new Scanner(System.in);
+        while(scan.hasNext()){
+            String inOri = scan.nextLine();
+            String preOri = "^";
+            for(int i=0; i<inOri.length(); i++){
+                preOri += "#"+inOri.charAt(i);
+            }
+            preOri += "#$";
+            int C = 0,R = 0;
+            int[] res = new int[preOri.length()];
+            for(int i=1; i<preOri.length()-1; i++){
+                int iMir = 2*C-i;
+                if(R > i){
+                    res[i] = Math.min(R-i,res[iMir]);
+                }else{
+                    res[i] = 0;
+                }
+                while (preOri.charAt(i+1+res[i]) == preOri.charAt(i-1-res[i])){
+                    res[i]++;
+                }
+                if(i+res[i] > R){
+                    C = i;
+                    R = i+res[i];
+                }
+            }
+            int maxLen = 0;
+            int index = 0;
+            for(int i=0; i<res.length; i++){
+                if(res[i] > maxLen){
+                    maxLen = res[i];
+                    index = i;
+                }
+            }
+            int start = (index - 1) / 2 - maxLen / 2;
+            String hui = inOri.substring(start,start+maxLen);
+            System.out.println(hui);
+
+        }
+        scan.close();
+
+
+
+
 
 
         String message = "<!DOCTYPE html>\n" +

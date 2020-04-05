@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -13,5 +14,6 @@ import java.util.Map;
 public class Device {
     private String name;
     private int age;
-    private Map<String, BigDecimal> attachMap;
+    private List<People> attaches;
+    private List<Integer> list;
 }

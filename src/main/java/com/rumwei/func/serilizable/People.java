@@ -4,9 +4,11 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 @Builder
 @Data
 public class People implements Serializable {
-    Person person;
-    String addition;
+    private String attachName;
+    private BigDecimal attachPrice;
 }

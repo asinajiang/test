@@ -4,15 +4,16 @@ import com.rumwei.util.ObjectUtilGW;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class SerilizableTest {
     public static void main(String[] args) throws Exception {
-        Map<String, BigDecimal> map = new HashMap<>();
-        map.put("cn",BigDecimal.ONE);
-        map.put("地点",BigDecimal.TEN);
-        Device device = Device.builder().name("honghong").age(12).attachMap(map).build();
+        People people = People.builder().attachName("name").attachPrice(BigDecimal.TEN).build();
+        People people1 = People.builder().attachName("name").attachPrice(BigDecimal.TEN).build();
+        List<People> peoples = new ArrayList<>();
+        peoples.add(people);
+        peoples.add(people1);
+        Device device = Device.builder().name("honghong").age(12).attaches(peoples).list(Arrays.asList(2,3,5,6)).build();
         String res = ObjectUtilGW.ObjectToJsonString(device);
         System.out.println(res);
 
@@ -20,25 +21,9 @@ public class SerilizableTest {
 
 
         Person person = Person.builder().age(11).sex(2).name("Person2").build();
-        People people = People.builder().addition("Additional").person(person).build();
-
-
-        try {
-            String addition = people.getAddition();
-            ObjectOutputStream os = new ObjectOutputStream(
-                    new FileOutputStream("/Users/guwei/Downloads/test.txt"));
 
 
 
-
-            os.writeObject(people); // 将User对象写进文件
-            os.flush();
-            os.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         try {
             ObjectInputStream is = new ObjectInputStream(new FileInputStream(
                     "/Users/guwei/Downloads/test.txt"));
