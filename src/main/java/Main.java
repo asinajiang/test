@@ -1,10 +1,13 @@
 import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.util.BeanUtil;
+import com.google.common.util.concurrent.Futures;
 import com.rumwei.enums.ApproximateType;
 import com.rumwei.enums.DateType;
 import com.rumwei.func.mail.MailUtils;
 import com.rumwei.func.sftest.People;
+import com.rumwei.func.thread.ThreadRunnable;
+import com.rumwei.func.var.Sky;
 import com.rumwei.util.BigDecimalUtilGW;
 import com.rumwei.util.CalendarUtilGW;
 import org.apache.commons.beanutils.BeanUtils;
@@ -27,9 +30,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
@@ -38,53 +39,41 @@ public class Main {
 
 
 
+
+
+
+
     private final HashMap<String,String> map = new HashMap<>();
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 
 
 
-        Scanner scan = new Scanner(System.in);
-        while(scan.hasNext()){
-            String inOri = scan.nextLine();
-            String preOri = "^";
-            for(int i=0; i<inOri.length(); i++){
-                preOri += "#"+inOri.charAt(i);
+        ExecutorService service = Executors.newCachedThreadPool();
+        Future<Integer> res = service.submit(new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                System.out.println("执行线程"+Thread.currentThread().getName());
+                try {
+                    Thread.sleep(2000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return 34;
             }
-            preOri += "#$";
-            int C = 0,R = 0;
-            int[] res = new int[preOri.length()];
-            for(int i=1; i<preOri.length()-1; i++){
-                int iMir = 2*C-i;
-                if(R > i){
-                    res[i] = Math.min(R-i,res[iMir]);
-                }else{
-                    res[i] = 0;
-                }
-                while (preOri.charAt(i+1+res[i]) == preOri.charAt(i-1-res[i])){
-                    res[i]++;
-                }
-                if(i+res[i] > R){
-                    C = i;
-                    R = i+res[i];
-                }
-            }
-            int maxLen = 0;
-            int index = 0;
-            for(int i=0; i<res.length; i++){
-                if(res[i] > maxLen){
-                    maxLen = res[i];
-                    index = i;
-                }
-            }
-            int start = (index - 1) / 2 - maxLen / 2;
-            String hui = inOri.substring(start,start+maxLen);
-            System.out.println(hui);
+        });
+        System.out.println(res.get());
+        Sky sky = new Sky();
 
-        }
-        scan.close();
+        Object o = new Object();
 
-
-
+        String gi = "sky  is    blue ha ha";
+        String[] ss = gi.split(" ");
+        System.out.println();
+        Map<String,String> map = new HashMap<>();
+        map.put(null,"gi");
+        System.out.println(map.get(null));
+        map.put(null,"ti");
+        System.out.println(map.get(null));
 
 
 
