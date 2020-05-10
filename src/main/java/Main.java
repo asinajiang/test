@@ -82,6 +82,7 @@ public class Main {
         System.out.println("conflict1");
         System.out.println("conflict2");
         System.out.println("rebase test1");
+        System.out.println("rebase test2");
 
 
         System.out.println("develop second function");
