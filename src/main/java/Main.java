@@ -75,6 +75,10 @@ public class Main {
             thread.start();
         }
 
+        System.out.println("develop first function");
+        System.out.println("change first function");
+        System.out.println("change first function again");
+        System.out.println("change first function second");
 
 //        ExecutorService service = Executors.newCachedThreadPool();
 //        Future<Integer> res = service.submit(new Callable<Integer>() {
