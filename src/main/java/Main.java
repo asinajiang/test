@@ -79,6 +79,7 @@ public class Main {
         System.out.println("change first function");
         System.out.println("change first function again");
         System.out.println("change first function second");
+        System.out.println("conflict2");
 
 
         System.out.println("develop second function");
