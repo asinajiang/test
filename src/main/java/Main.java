@@ -75,9 +75,6 @@ public class Main {
             thread.start();
         }
 
-        System.out.println("develop function 1");
-
-
 
 //        ExecutorService service = Executors.newCachedThreadPool();
 //        Future<Integer> res = service.submit(new Callable<Integer>() {
