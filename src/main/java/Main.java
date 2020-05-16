@@ -64,6 +64,7 @@ public class Main {
         });
         thread1.setName("thread1");
         thread1.start();
+        thread1.interrupt();
         for (int i=2; i<4; i++){
             final int t = i;
             Thread thread = new Thread(()->{
