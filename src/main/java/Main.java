@@ -41,6 +41,17 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 
+        mark: for (int i=0; i<5; i++) {
+            for (int j=0; j<10; j++) {
+                if (i == 2) {
+                    break mark;
+                }else {
+                    break;
+                }
+            }
+        }
+        System.out.println();
+
 
         HashMap<Integer,String> map = new HashMap<>(16);
         for(int i=0; i<16; i++){
