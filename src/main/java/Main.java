@@ -6,6 +6,7 @@ import com.rumwei.enums.ApproximateType;
 import com.rumwei.enums.DateType;
 import com.rumwei.func.mail.MailUtils;
 import com.rumwei.func.sftest.People;
+import com.rumwei.func.thread.SubThread;
 import com.rumwei.func.thread.ThreadRunnable;
 import com.rumwei.func.var.Sky;
 import com.rumwei.util.BigDecimalUtilGW;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
+import java.net.InetAddress;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -41,6 +43,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 
+
+        System.out.println(InetAddress.getByName(null));
 
         HashMap<Integer,String> map = new HashMap<>(16);
         for(int i=0; i<16; i++){
