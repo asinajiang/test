@@ -27,6 +27,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -43,16 +44,25 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
 
-        mark: for (int i=0; i<5; i++) {
-            for (int j=0; j<10; j++) {
-                if (i == 2) {
-                    break mark;
-                }else {
-                    break;
-                }
-            }
-        }
-        System.out.println();
+        int s_value = 48623; //二机制 1011 1101 1110 1111 @
+        int i1 = 0xff & (s_value >> 8); //189 - 1011 1101 @
+        byte i2 = (byte) i1; //10111101负数由补码表示，需要转成原码，即按位取反然后+1，取反为01000010，+1得01000011，即-67
+        int i3 = 0xff & (s_value); //239 - 1110 1111 @
+        byte i4 = (byte) (0xff & (s_value)); //-17，计算方法如上
+
+
+        System.out.println(i1);
+        System.exit(0);
+
+
+        ScheduledExecutorService service = Executors.newScheduledThreadPool(5);
+        ScheduledFuture<?> scheduledFuture = service.scheduleAtFixedRate(
+                () -> System.out.println(LocalDateTime.now() + ":" + Thread.currentThread().getName() + ":run"), 0, 3, TimeUnit.SECONDS);
+        TimeUnit.SECONDS.sleep(16);
+        scheduledFuture.cancel(false);
+        TimeUnit.SECONDS.sleep(200);
+        System.exit(0);
+
 
 
         System.out.println(InetAddress.getByName(null));

@@ -10,6 +10,7 @@ public class TCPServer {
         //创建服务端socket
         ServerSocket serverSocket = new ServerSocket(8080);
         Socket socket = serverSocket.accept();
+        System.out.println("server端socket端口：" + socket.getPort());
         //获取来自客户端的内容
         InputStream in = socket.getInputStream();
         byte[] buffer = new byte[1024];

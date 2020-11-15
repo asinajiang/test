@@ -20,7 +20,8 @@ public class TCPClient {
             socket.connect(new InetSocketAddress("localhost",8080),2000);
             OutputStream outputStream = socket.getOutputStream();
             //往服务端发送的数据
-            while(true){
+            int num = 10;
+            while(num-- > 0){
                 System.out.println("start");
                 outputStream.write(("TCP is coming!"+ UUID.randomUUID().toString()).getBytes());
 //            socket.close();
